@@ -221,9 +221,10 @@ if (is.na(dat.ID$Pile) || (dat.ID$Pile!=1 && dat.ID$Pile!=0 && dat.ID$Pile!=999)
   stop()
 }
 
-if (dat.ID$mm.user==F && (dat.ID$Linf.user>600 || dat.ID$Lm50>600)){
-  cat("ERROR: Length should be reported in cm when mm.user = FALSE.\n",sep="")
-  stop()
+if (dat.ID$mm.user==F){
+  cat("REMINDER: Lengths in the ID file should be reported in cm, whereas lengths in the catch-at-length file should be always reported in mm.\n",sep="")
+}else{
+  cat("REMINDER: Lengths in the ID file should be reported in mm. Lengths in the catch-at-length file should be reported in mm.\n",sep="")
 }
 
 if (!file.exists(dat.ID$File)){
